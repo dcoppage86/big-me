@@ -1,6 +1,6 @@
 BIG ME
 
-I want my the home page to be a feelings chart where there is a body with an empty face, there will be multiple faces you can choose from to to place in the empty space. This will allow your sensory challenged child to show you how they are feeling with the expressions. Alongside there will be a form to fill out that you can provide to your therapist or keep for personal records. A user will be able to login and fill out their charts daily and save them. 
+This will allow your sensory challenged child to show you how they are feeling with the expressions. Alongside there will be a form to fill out that you can provide to your therapist or keep for personal records. A user will be able to login and fill out their charts daily and save them. 
 
 *User*
 
