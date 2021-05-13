@@ -15,6 +15,16 @@ ActiveRecord::Schema.define(version: 2021_05_11_193920) do
   create_table "charts", force: :cascade do |t|
     t.string "title"
     t.text "content"
+    t.string "question_1"
+    t.string "question_2"
+    t.string "question_3"
+    t.string "question_4"
+    t.string "question_5"
+    t.string "question_6"
+    t.string "question_7"
+    t.string "question_8"
+    t.string "question_9"
+    t.string "question_10"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
