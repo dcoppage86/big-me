@@ -1,13 +1,6 @@
-const baseUrl = "http://localhost:3000/"
+const api = new ApiService;
+debugger
 
-document.addEventListener('DOMContentLoaded',() => {
-    getChart()
-})
+function init () {
 
-function getChart() {
-    fetch(baseUrl + "charts")
-    .then(response => response.json())
-    .then(charts => {
-        console.log(charts);
-    })
 }
