@@ -1,13 +1,13 @@
  class ApiService {
      constructor() {
-        this.baseUrl = "http://localhost:3000"
+        this.baseUrl = "http://localhost:3000/api/v1"
     }
 
-     fetchChart() {
+    getCharts() {
         return fetch(this.baseUrl + "/charts")
         .then(response => response.json())
         .then(charts => {
-            console.log(charts);
+            console.log(charts)
         })
     }
 

@@ -1,6 +1,5 @@
-const api = new ApiService;
-debugger
+const api = new ApiService
 
-function init () {
-
+function init() {
+    api.getCharts()
 }
