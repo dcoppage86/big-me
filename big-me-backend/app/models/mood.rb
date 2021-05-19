@@ -1,3 +1,3 @@
 class Mood < ApplicationRecord
-    belongs_to :chart
+  belongs_to :chart
 end
