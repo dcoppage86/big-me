@@ -1,5 +1,6 @@
 const api = new ApiService
 
-function init() {
+document.addEventListener('DOMContentLoaded',() => {
     api.getCharts()
-}
+})
+
