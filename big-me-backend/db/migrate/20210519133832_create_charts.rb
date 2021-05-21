@@ -13,6 +13,7 @@ class CreateCharts < ActiveRecord::Migration[6.0]
       t.string :question_8
       t.string :question_9
       t.string :question_10
+      t.belongs_to :mood, null: false, foreign_key: true
 
       t.timestamps
     end

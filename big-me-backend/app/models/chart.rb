@@ -1,3 +1,3 @@
 class Chart < ApplicationRecord
-    has_many :moods
+belongs_to :mood
 end

@@ -25,18 +25,18 @@ ActiveRecord::Schema.define(version: 2021_05_19_134007) do
     t.string "question_8"
     t.string "question_9"
     t.string "question_10"
+    t.integer "mood_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["mood_id"], name: "index_charts_on_mood_id"
   end
 
   create_table "moods", force: :cascade do |t|
     t.string "feeling"
     t.string "image_url"
-    t.integer "chart_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["chart_id"], name: "index_moods_on_chart_id"
   end
 
-  add_foreign_key "moods", "charts"
+  add_foreign_key "charts", "moods"
 end
