@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded',() => {
     getCharts()
 })
 
+function newChart() {
+    fetch(baseUrl)
+    .then(response => res)
+}
+
 function getCharts() {
     fetch(baseUrl)
     .then(response => response.json())
@@ -16,7 +21,6 @@ function showCharts(charts) {
     charts.data.forEach(chart => {
         const chartMarkup = `
         <div data-id=${chart.id}>
-            <h3>${chart.attributes.title}</h3>
             <strong>${chart.attributes.question_1}</strong>
             <p>${chart.attributes.content_1}</p>
             <br>
@@ -55,3 +59,7 @@ function showCharts(charts) {
         })
 }
 
+// function chartFormHandler(e) {
+//     e.preventDefault()
+//     const 
+// }
