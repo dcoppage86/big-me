@@ -14,6 +14,5 @@ mood = Mood.create([
     {feeling: "Nervous", image_url: "https://i.ibb.co/FnZdPzw/1-F610-color.png"},
     {feeling: "Unwell", image_url: "https://i.ibb.co/B2pTdFC/1-F912-color.png"},
     {feeling: "Standoffish", image_url: "https://i.ibb.co/rZs48L8/1-F627-color.png"}])
-chart = Chart.create([
-    {title: "Big Me", question_1: "What special power are we feeling today?", question_2: "What did you dream about?", question_3: "What could we do today to be our best BigMe?", question_4: "What would be an awesome BigMe Reward?", question_5: "What is a green zone feeling today?", question_6: "What is a yellow zone feeling today?", question_7: "What is a blue zone feeling today?", question_8: "What is a red zone feeling today?", question_9: "What is the hardest thing you had to do yesterday?", question_10: "What is the best thing you did yesterday?"}
-])
+
+    
