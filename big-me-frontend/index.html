@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href=”./output.css” rel=”stylesheet”>
         <link href="css/style.css" rel="stylesheet">
+        <script src="calender.js"></script>
         <script type="text/javascript" src="src/api_service.js"></script>
         
         <script type="text/javascript" src="src/index.js"></script>
@@ -16,9 +17,20 @@
         <p>A place to handle your daily feelings!</p>
         
         <div id="new-chart-form">
-           
-        </div>
+            <h3>Daily Entry</h3>
+            <strong>Title:</strong>
+            <br>
+            <input id='input-title' type="text" name="title" value="" placeholder="Fill in title..." class="input-text">
+            <br>
+            <br>
+            <strong>How Was Your Day?</strong>
+            <br>
+            <textarea id='input-content' type="text" name="content" value="" placeholder="Tell us about your day..." class="input-text"></textarea>
+            
 
+        </div>
+        <br>
+        <br>
         <div id="chart-container">
 
         </div>
