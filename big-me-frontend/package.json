@@ -14,5 +14,8 @@
   "license": "MIT",
   "dependencies": {
     "tailwindcss": "^2.1.2"
+  },
+  "devDependencies": {
+    "stylelint-config-recommended": "^5.0.0"
   }
 }
