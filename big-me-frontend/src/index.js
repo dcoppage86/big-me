@@ -19,6 +19,41 @@ function getCharts() {
     })
 }
 
+function postCharts(question_1, question_2, question_3, question_4, question_5, question_6, question_7, question_7, question_8, question_9, question_10, content_1, content_2, content_3, content_4, content_5, content_6, content_7, content_7, content_8, content_9, content_10, mood_id) {
+    fetch(baseUrl, {
+        // POST request
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            question_1: question_1,
+            question_2: question_2,
+            question_3: question_3,
+            question_4: question_4,
+            question_5: question_5,
+            question_6: question_6,
+            question_7: question_7,
+            question_8: question_8,
+            question_9: question_9,
+            question_10: question_10,
+            content_1: content_1,
+            content_2: content_2,
+            content_3: content_3,
+            content_4: content_4,
+            content_5: content_5,
+            content_6: content_6,
+            content_7: content_7,
+            content_8: content_8,
+            content_9: content_9,
+            content_10: content_10,
+            mood_id: mood_id
+        })
+    })
+    .then(response => response.json())
+    .then(charts => {
+        console.log(charts);
+    })
+}
+
 function showCharts(charts) {
     charts.data.forEach(chart => {
         const chartMarkup = `
