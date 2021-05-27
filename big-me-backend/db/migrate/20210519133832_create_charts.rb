@@ -1,26 +1,9 @@
 class CreateCharts < ActiveRecord::Migration[6.0]
   def change
     create_table :charts do |t|
-      t.text :content_1
-      t.text :content_2
-      t.text :content_3
-      t.text :content_4
-      t.text :content_5
-      t.text :content_6
-      t.text :content_7
-      t.text :content_8
-      t.text :content_9
-      t.text :content_10
-      t.string :question_1
-      t.string :question_2
-      t.string :question_3
-      t.string :question_4
-      t.string :question_5
-      t.string :question_6
-      t.string :question_7
-      t.string :question_8
-      t.string :question_9
-      t.string :question_10
+      t.string :title
+      t.string :content
+      t.datetime :datetime
       t.belongs_to :mood, null: false, foreign_key: true
 
       t.timestamps

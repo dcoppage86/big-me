@@ -13,26 +13,9 @@
 ActiveRecord::Schema.define(version: 2021_05_19_134007) do
 
   create_table "charts", force: :cascade do |t|
-    t.text "content_1"
-    t.text "content_2"
-    t.text "content_3"
-    t.text "content_4"
-    t.text "content_5"
-    t.text "content_6"
-    t.text "content_7"
-    t.text "content_8"
-    t.text "content_9"
-    t.text "content_10"
-    t.string "question_1"
-    t.string "question_2"
-    t.string "question_3"
-    t.string "question_4"
-    t.string "question_5"
-    t.string "question_6"
-    t.string "question_7"
-    t.string "question_8"
-    t.string "question_9"
-    t.string "question_10"
+    t.string "title"
+    t.string "content"
+    t.datetime "datetime"
     t.integer "mood_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
