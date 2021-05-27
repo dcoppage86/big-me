@@ -22,7 +22,7 @@ class Api::V1::ChartsController < ApplicationController
     private 
     
     def chart_params
-        params.require(:chart).permit(:title, :content, :datetime, :mood_id)
+        params.require(:chart).permit(:title, :content, :date, :mood_id)
     end
     
     

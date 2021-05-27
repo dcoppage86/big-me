@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2021_05_19_134007) do
 
   create_table "charts", force: :cascade do |t|
     t.string "title"
-    t.string "content"
-    t.datetime "datetime"
+    t.text "content"
+    t.date "date"
     t.integer "mood_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
