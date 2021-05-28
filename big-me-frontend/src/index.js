@@ -2,14 +2,14 @@ const baseUrl = "http://localhost:3000/api/v1/charts"
 
 document.addEventListener('DOMContentLoaded',() => {
     getCharts()
-    postCharts()
+    
+    const newChartForm = document.querySelector("#new-chart-form")
+
+    newChartForm.addEventListener("submit", (e) => 
+    createFormHandler(e))
 })
 
 
-function newChart() {
-    fetch(baseUrl)
-    .then(response => res)
-}
 
 function getCharts() {
     fetch(baseUrl)
@@ -52,7 +52,7 @@ function showCharts(charts) {
         })
 }
 
-// function chartFormHandler(e) {
-//     e.preventDefault()
-//     const 
-// }
+function createFormHandler(e) {
+    e.preventDefault()
+    debugger
+}
