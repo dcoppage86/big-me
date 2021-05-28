@@ -54,5 +54,9 @@ function showCharts(charts) {
 
 function createFormHandler(e) {
     e.preventDefault()
-    debugger
+    const titleInput = document.querySelector('#input-title').value
+    const contentInput = document.querySelector('#input-title').value
+    const dateInput = document.querySelector('#start').value
+    const moodId = parseInt(document.querySelector('#moods').value)
+    postCharts(titleInput, contentInput, dateInput, moodId)
 }
