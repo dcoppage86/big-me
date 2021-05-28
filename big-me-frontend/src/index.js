@@ -15,7 +15,9 @@ function getCharts() {
     fetch(baseUrl)
     .then(response => response.json())
     .then(charts => {
-        showCharts(charts)
+        charts.data.forEach(chart => {
+            render(chart)
+        })
     })
 }
 
@@ -33,29 +35,38 @@ function postCharts(title, content, date, mood_id) {
     })
     .then(response => response.json())
     .then(chart => {
-        console.log(chart);
-    })
-}
-
-function showCharts(charts) {
-    charts.data.forEach(chart => {
+        const chartData = chart.data.attributes
         const chartMarkup = `
-        <div data-id=${chart.id}>
-            <strong>${chart.attributes.date}: ${chart.attributes.title}</strong>
-            <p>${chart.attributes.content}</p>
+        <div data-id=${chartData.id}>
+            <strong>${chartData.date}: ${chart.attributes.title}</strong>
+            <p>${chartData.content}</p>
             <br>
-            <p hidden>${chart.attributes.mood_id}</p>
-            <img src=${chart.attributes.mood.image_url} height= 100 width=100></img>
+            <p hidden>${chartData.mood_id}</p>
+            <img src=${chartData.mood.image_url} height= 100 width=100></img>
         </div>`;
 
         document.querySelector('#chart-container').innerHTML += chartMarkup
-        })
+    })
 }
+
+function render(chart) {
+    const chartMarkup = `
+            <div data-id=${chart.id}>
+                <strong>${chart.attributes.date}: ${chart.attributes.title}</strong>
+                <p>${chart.attributes.content}</p>
+                <br>
+                <p hidden>${chart.attributes.mood_id}</p>
+                <img src=${chart.attributes.mood.image_url} height= 100 width=100></img>
+            </div>`;
+    
+            document.querySelector('#chart-container').innerHTML += chartMarkup
+}
+
 
 function createFormHandler(e) {
     e.preventDefault()
     const titleInput = document.querySelector('#input-title').value
-    const contentInput = document.querySelector('#input-title').value
+    const contentInput = document.querySelector('#input-content').value
     const dateInput = document.querySelector('#start').value
     const moodId = parseInt(document.querySelector('#moods').value)
     postCharts(titleInput, contentInput, dateInput, moodId)
