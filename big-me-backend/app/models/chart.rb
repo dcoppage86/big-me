@@ -1,3 +1,3 @@
 class Chart < ApplicationRecord
-belongs_to :mood, dependent: :destroy
+belongs_to :mood
 end
