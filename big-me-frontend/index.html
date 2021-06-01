@@ -13,10 +13,10 @@
         
     </head>
     <body>
-        <h1 class="text-4xl text-red-900"> Welcome to BigMe!</h1>
-        <p>A place to handle your daily feelings!</p>
+        <h1 class="flex items-center justify-center text-6xl bg-indigo-300 text-red-900 rounded-lg border shadow-lg p-10"> Welcome to BigMe!</h1>
+        <p class="flex items-center justify-center">A place to handle your daily feelings!</p>
         
-        <div class="chart-form-container">
+        <div class="flex items-center justify-center bg-blue-300 rounded-lg border shadow-lg p-10 chart-form-container">
             <form id="new-chart-form" >
                 <h3>Daily Entry</h3>
                 <strong>Enter Todays Date:</strong>
@@ -31,7 +31,7 @@
                 <br>
                 <strong>How Was Your Day?</strong>
                 <br>
-                <textarea id='input-content' type="text" name="content" value="" placeholder="Tell us about your day..." class="input-text"></textarea>
+                <textarea id='input-content' type="text" name="content" value="" cols="80" rows="8" placeholder="Tell us about your day..." class="input-text"></textarea>
                 <br>
                 <br>
                 <select id='moods' name="moods">
@@ -46,7 +46,7 @@
                 </select>
                 <br>
                 <br>
-                <input id='submit-btn' type="submit" name="submit" value="Submit Your Entry" class="submit">
+                <input id='submit-btn' type="submit" name="submit" value="Submit Your Entry" class="submit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
 
             </form>
             
