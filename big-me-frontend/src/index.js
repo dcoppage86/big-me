@@ -39,12 +39,13 @@ function postCharts(title, content, date, mood_id) {
 
 function render(chart) {
     const chartMarkup = `
-        <div data-id=${chart.id}>
+        <div data-id=${chart.id} class="bg-blue-300 rounded-lg border shadow-lg p-10">
             <strong>${chart.attributes.date}: ${chart.attributes.title}</strong>
             <p>${chart.attributes.content}</p>
             <br>
             <p hidden>${chart.attributes.mood_id}</p>
             <img src=${chart.attributes.mood.image_url} height= 100 width=100></img>
+            <input id='submit-btn' type="submit" name="submit" value="Edit" class="submit bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded-full">
         </div>`;
     
         document.querySelector('#chart-container').innerHTML += chartMarkup
