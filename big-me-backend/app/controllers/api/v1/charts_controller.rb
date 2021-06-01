@@ -6,10 +6,10 @@ class Api::V1::ChartsController < ApplicationController
 
     def create
         chart = Chart.new(chart_params)
-        if chart.save 
+        if chart.save! 
             render json: chart, status: :accepted
         else
-            render json: {errors: chart.errors.full_messages}, status: :unprocessible_entity
+            render json: {errors: chart.errors.full_messages}, status: :unprocessable_entity
         end
     end
 
@@ -22,7 +22,7 @@ class Api::V1::ChartsController < ApplicationController
     private 
     
     def chart_params
-        params.require(:chart).permit(:title, :content, :date, :mood_id)
+        params.require(:chart).permit(:title, :content, :date, :mood, :mood_id)
     end
     
     

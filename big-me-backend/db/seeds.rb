@@ -18,4 +18,6 @@ mood = Mood.create([
     {feeling: "Standoffish", image_url: "https://i.ibb.co/rZs48L8/1-F627-color.png"}])
 
    
-    
+    chart = Chart.create([
+        {title: "Today was a fantastic day!", content: "We rode our bikes in the park and Fynleigh was looked amazing and bright, The look of pure happiness on her face was incredible. These are the days that make me feeling like im doing a great job", date: "2021-05-31", mood_id: 1}
+    ])
