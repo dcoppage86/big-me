@@ -21,6 +21,10 @@ class Chart {
             </div>`;
     }
 
+    static findById(id) {
+        return this.all.find(chart => chart.id === id);
+    }
+
 }
 
 Chart.all = [];
