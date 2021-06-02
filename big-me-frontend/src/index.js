@@ -47,6 +47,20 @@ function postCharts(title, content, date, mood_id) {
     })
 }
 
+function patchChart(title, content, date, mood_id) {
+    const bodyJSON = (title, content, date, mood_id)
+    fetch(baseUrl + `/${chart.id}`,{
+        method: 'PATCH',
+        headers: {
+            "Content-Type": 'application/json',
+            Accept: 'application/json',
+        },
+        body: JSON.stringify(bodyJSON)
+    })
+    .then(response = response.json())
+    .then(updatedChart => console.log(updatedChart));
+}
+
 
 
 function createFormHandler(e) {
