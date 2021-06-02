@@ -27,24 +27,24 @@ class Chart {
 
     renderEditChart() {
         return `
-        <form id="new-chart-form" >
+        <form data-id="${this.id}" >
                 <h3>Daily Entry</h3>
                 <strong>Enter Todays Date:</strong>
                 <br>
-                <input type="date" id="start" name="date-start" value="2021-05-28" min="2021-05-28" max="2030-01-01">
+                <input type="date" id="start" name="date-start" value="${this.date}" min="2021-05-28" max="2030-01-01">
                 <br>
                 <br>
                 <strong>Title:</strong>
                 <br>
-                <input id='input-title' type="text" name="title" value="" placeholder="Fill in title..." class="input-text">
+                <input id='input-title' type="text" name="title" value="${this.title}" placeholder="Fill in title..." class="input-text">
                 <br>
                 <br>
                 <strong>How Was Your Day?</strong>
                 <br>
-                <textarea id='input-content' type="text" name="content" value="" cols="80" rows="8" placeholder="Tell us about your day..." class="input-text"></textarea>
+                <textarea id='input-content' type="text" name="content" value="${this.content}" cols="80" rows="8" placeholder="Tell us about your day..." class="input-text"></textarea>
                 <br>
                 <br>
-                <select id='moods' name="moods">
+                <select id='moods' name="moods" value="${this.mood.feeling}">
                     <option value="1">Happy</option>
                     <option value="2">Sad</option>
                     <option value="3">Frustrated</option>
