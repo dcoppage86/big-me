@@ -25,6 +25,42 @@ class Chart {
         return this.all.find(chart => chart.id === id);
     }
 
+    renderEditChart() {
+        return `
+        <form id="new-chart-form" >
+                <h3>Daily Entry</h3>
+                <strong>Enter Todays Date:</strong>
+                <br>
+                <input type="date" id="start" name="date-start" value="2021-05-28" min="2021-05-28" max="2030-01-01">
+                <br>
+                <br>
+                <strong>Title:</strong>
+                <br>
+                <input id='input-title' type="text" name="title" value="" placeholder="Fill in title..." class="input-text">
+                <br>
+                <br>
+                <strong>How Was Your Day?</strong>
+                <br>
+                <textarea id='input-content' type="text" name="content" value="" cols="80" rows="8" placeholder="Tell us about your day..." class="input-text"></textarea>
+                <br>
+                <br>
+                <select id='moods' name="moods">
+                    <option value="1">Happy</option>
+                    <option value="2">Sad</option>
+                    <option value="3">Frustrated</option>
+                    <option value="4">Angry</option>
+                    <option value="5">Excited</option>
+                    <option value="6">Nervous</option>
+                    <option value="7">Unwell</option>
+                    <option value="8">Standoffish</option>
+                </select>
+                <br>
+                <br>
+                <input id='submit-btn' type="submit" name="submit" value="Submit Your Entry" class="submit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            </form>
+        `
+    }
+
 }
 
 Chart.all = [];
