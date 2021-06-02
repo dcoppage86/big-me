@@ -7,7 +7,13 @@ document.addEventListener('DOMContentLoaded',() => {
 
     newChartForm.addEventListener("submit", (e) => 
     createFormHandler(e))
+
+    const chartContainer = document.querySelector("#chart-container")
+    chartContainer.addEventListener('click', e => {
+        console.log('clicked');
+    });
 })
+
 
 
 
