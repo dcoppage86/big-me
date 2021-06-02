@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded',() => {
 
     const chartContainer = document.querySelector("#chart-container")
     chartContainer.addEventListener('click', e => {
-        console.log('clicked');
+        const id = parseInt(e.target.dataset.id);
+        const chart = Chart.findById(id);
+        document.querySelector('#edit-chart').innerHTML = chart.renderEditChart();
     });
 })
 
