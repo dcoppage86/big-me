@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded',() => {
     chartContainer.addEventListener('click', e => {
         const id = parseInt(e.target.dataset.id);
         const chart = Chart.findById(id);
-        console.log(chart);
+        document.querySelector('#edit-chart').innerHTML += chart.renderUpdateChart();
     });
 })
 
@@ -80,4 +80,5 @@ function updateChartHandler(e) {
     const content = e.target.querySelector('#input-content').value;
     const date = e.target.querySelector('#start').value;
     const mood_id = e.target.querySelector('#moods').value;
+    patchChart(title, content, date, mood_id)
 }

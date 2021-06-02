@@ -23,6 +23,7 @@ class Chart {
 
     static findById(id) {
         return this.all.find(chart => chart.id === id);
+        debugger
     }
 
     renderUpdateChart() {
