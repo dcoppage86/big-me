@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded',() => {
     chartContainer.addEventListener('click', e => {
         const id = parseInt(e.target.dataset.id);
         const chart = Chart.findById(id);
-        document.querySelector('#edit-chart').innerHTML = chart.renderEditChart();
+        console.log(chart);
     });
 })
 
@@ -70,4 +70,14 @@ function createFormHandler(e) {
     const dateInput = document.querySelector('#start').value
     const moodId = parseInt(document.querySelector('#moods').value)
     postCharts(titleInput, contentInput, dateInput, moodId)
+}
+
+function updateChartHandler(e) {
+    e.preventDefault();
+    const id = parseInt(e.target.dataset.id);
+    const chart = Chart.findById(id);
+    const title = e.target.querySelector('#input-title').value;
+    const content = e.target.querySelector('#input-content').value;
+    const date = e.target.querySelector('#start').value;
+    const mood_id = e.target.querySelector('#moods').value;
 }

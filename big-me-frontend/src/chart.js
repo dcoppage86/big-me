@@ -25,10 +25,10 @@ class Chart {
         return this.all.find(chart => chart.id === id);
     }
 
-    renderEditChart() {
+    renderUpdateChart() {
         return `
         <form data-id="${this.id}" >
-                <h3>Daily Entry</h3>
+                <h3>Edit Entry</h3>
                 <strong>Enter Todays Date:</strong>
                 <br>
                 <input type="date" id="start" name="date-start" value="${this.date}" min="2021-05-28" max="2030-01-01">
