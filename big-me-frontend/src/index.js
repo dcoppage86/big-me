@@ -33,8 +33,6 @@ function postCharts(title, content, date, mood_id) {
     })
     .then(response => response.json())
     .then(chart => {
-        console.log(chart);
-
         let newChart = new Chart(chart)
 
         document.querySelector('#chart-container').innerHTML += newChart.renderChartCard()
