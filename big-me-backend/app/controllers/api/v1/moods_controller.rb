@@ -1,7 +1,7 @@
 class Api::V1::MoodsController < ApplicationController
     def index
         moods = Mood.all
-        render json: MoodSerializer.new(moods)
+        render json: moods
     end
 
     def create 
