@@ -8,26 +8,15 @@ document.addEventListener('DOMContentLoaded',() => {
     newChartForm.addEventListener("submit", (e) => 
     createFormHandler(e))
     
-    patchEvent()
+    
 })
-    function patchEvent() {
-        const chartContainer = document.querySelector('#chart-container')
-        chartContainer.addEventListener('click', e => {
-            const id = parseInt(e.target.dataSet.id);
-            const chart = Chart.findById(id);
-            console.log(chart);
-        });
-    }
-
-
-
 
 function getCharts() {
     fetch(baseUrl)
     .then(response => response.json())
     .then(charts => {
         charts.data.forEach(chart => {
-            let newChart = new Chart(chart, chart.attributes)
+            const newChart = new Chart(chart.id, chart.attributes)
 
             document.querySelector('#chart-container').innerHTML += newChart.renderChartCard();
         })
@@ -46,7 +35,8 @@ function postCharts(title, content, date, mood_id) {
     .then(chart => {
         console.log(chart);
         const chartData = chart.data
-        let newChart = new Chart(chartData)
+        let newChart = new Chart(chart.id, chart.chartAttributes)
+
         document.querySelector('#chart-container').innerHTML += newChart += renderChartCard()
     })
 }
@@ -76,13 +66,3 @@ function createFormHandler(e) {
     postCharts(titleInput, contentInput, dateInput, moodId)
 }
 
-function updateChartHandler(e) {
-    e.preventDefault();
-    const id = parseInt(e.target.dataset.id);
-    const chart = Chart.findById(id);
-    const title = e.target.querySelector('#input-title').value;
-    const content = e.target.querySelector('#input-content').value;
-    const date = e.target.querySelector('#start').value;
-    const mood_id = e.target.querySelector('#moods').value;
-    patchChart(title, content, date, mood_id)
-}

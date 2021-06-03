@@ -1,7 +1,7 @@
 class Chart {
 
-    constructor(chart, chartAttributes) {
-        this.id = chart.id
+    constructor(id, chartAttributes) {
+        this.id = id
         this.title = chartAttributes.title
         this.content = chartAttributes.content
         this.date = chartAttributes.date
@@ -21,45 +21,6 @@ class Chart {
             </div>`;
     }
 
-    static findById(id) {
-        return this.all.find(chart => chart.id === id);
-    }
-
-    renderUpdateChart() {
-        return `
-        <form data-id="${this.id}" >
-                <h3>Edit Entry</h3>
-                <strong>Enter Todays Date:</strong>
-                <br>
-                <input type="date" id="start" name="date-start" value="${this.date}" min="2021-05-28" max="2030-01-01">
-                <br>
-                <br>
-                <strong>Title:</strong>
-                <br>
-                <input id='input-title' type="text" name="title" value="${this.title}" placeholder="Fill in title..." class="input-text">
-                <br>
-                <br>
-                <strong>How Was Your Day?</strong>
-                <br>
-                <textarea id='input-content' type="text" name="content" value="${this.content}" cols="80" rows="8" placeholder="Tell us about your day..." class="input-text"></textarea>
-                <br>
-                <br>
-                <select id='moods' name="moods" value="${this.mood.feeling}">
-                    <option value="1">Happy</option>
-                    <option value="2">Sad</option>
-                    <option value="3">Frustrated</option>
-                    <option value="4">Angry</option>
-                    <option value="5">Excited</option>
-                    <option value="6">Nervous</option>
-                    <option value="7">Unwell</option>
-                    <option value="8">Standoffish</option>
-                </select>
-                <br>
-                <br>
-                <input id='submit-btn' type="submit" name="submit" value="Submit Your Entry" class="submit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-            </form>
-        `
-    }
 
 }
 
