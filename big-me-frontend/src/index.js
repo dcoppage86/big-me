@@ -16,7 +16,7 @@ function getCharts() {
     .then(response => response.json())
     .then(charts => {
         charts.data.forEach(chart => {
-            const newChart = new Chart(chart.id, chart.attributes)
+            const newChart = new Chart(chart)
 
             document.querySelector('#chart-container').innerHTML += newChart.renderChartCard();
         })
@@ -34,10 +34,10 @@ function postCharts(title, content, date, mood_id) {
     .then(response => response.json())
     .then(chart => {
         console.log(chart);
-        const chartData = chart.data
-        let newChart = new Chart(chart.id, chart.chartAttributes)
 
-        document.querySelector('#chart-container').innerHTML += newChart += renderChartCard()
+        let newChart = new Chart(chart)
+
+        document.querySelector('#chart-container').innerHTML += newChart.renderChartCard()
     })
 }
 
