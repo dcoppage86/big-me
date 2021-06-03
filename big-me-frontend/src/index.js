@@ -7,14 +7,17 @@ document.addEventListener('DOMContentLoaded',() => {
 
     newChartForm.addEventListener("submit", (e) => 
     createFormHandler(e))
-
-    const chartContainer = document.querySelector("#chart-container")
-    chartContainer.addEventListener('click', e => {
-        const id = parseInt(e.target.dataset.id);
-        const chart = Chart.findById(id);
-        document.querySelector('#edit-chart').innerHTML += chart.renderUpdateChart();
-    });
+    
+    patchEvent()
 })
+    function patchEvent() {
+        const chartContainer = document.querySelector('#chart-container')
+        chartContainer.addEventListener('click', e => {
+            const id = parseInt(e.target.dataSet.id);
+            const chart = Chart.findById(id);
+            console.log(chart);
+        });
+    }
 
 
 
@@ -43,7 +46,8 @@ function postCharts(title, content, date, mood_id) {
     .then(chart => {
         console.log(chart);
         const chartData = chart.data
-        render(chartData)
+        let newChart = new Chart(chartData)
+        document.querySelector('#chart-container').innerHTML += newChart += renderChartCard()
     })
 }
 
