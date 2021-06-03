@@ -45,7 +45,7 @@ class Api::V1::ChartsController < ApplicationController
     end
 
     def set_chart
-        chart = Chart.find(params[:id])
+        chart = Chart.find(params[:id, :title, :date, :content, :mood_id])
     end
     
     
