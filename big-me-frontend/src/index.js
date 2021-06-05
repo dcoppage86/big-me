@@ -1,9 +1,11 @@
-const baseUrl = "http://localhost:3000/api/v1/charts"
+const newApi = new ApiService
+const newChartForm = document.querySelector("#new-chart-form")
+const newChartCard = document.querySelector('#chart-container')
 
 document.addEventListener('DOMContentLoaded',() => {
-    getCharts()
+    newApi.getCharts()
     
-    const newChartForm = document.querySelector("#new-chart-form")
+    newChartForm
 
     newChartForm.addEventListener("submit", (e) => 
     createFormHandler(e))
@@ -11,20 +13,20 @@ document.addEventListener('DOMContentLoaded',() => {
     
 })
 
-function getCharts() {
-    fetch(baseUrl)
-    .then(response => response.json())
-    .then(charts => {
-        // let charts = Chart.all
-        charts.forEach(chart => {
+// function getCharts() {
+//     fetch(baseUrl)
+//     .then(response => response.json())
+//     .then(charts => {
+//         // let charts = Chart.all
+//         charts.forEach(chart => {
             
-            const newChart = new Chart(chart)
+//             const newChart = new Chart(chart)
 
-            document.querySelector('#chart-container').innerHTML += newChart.renderChartCard();
-        })
-        return charts
-    })
-}
+//             document.querySelector('#chart-container').innerHTML += newChart.renderChartCard();
+//         })
+//         return charts
+//     })
+// }
 
 function postCharts(title, content, date, mood_id) {
     const bodyData = {title, content, date, mood_id}
@@ -38,7 +40,7 @@ function postCharts(title, content, date, mood_id) {
     .then(chart => {
         let newChart = new Chart(chart)
 
-        document.querySelector('#chart-container').innerHTML += newChart.renderChartCard()
+        newChartCard.innerHTML += newChart.renderChartCard()
     })
 }
 
