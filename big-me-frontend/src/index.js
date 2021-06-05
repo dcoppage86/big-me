@@ -2,16 +2,17 @@ const newApi = new ApiService
 const newChartForm = document.querySelector("#new-chart-form")
 
 
-document.addEventListener('DOMContentLoaded',() => {
+function init(){
+    console.log("Dom Has Loaded")
+
     newApi.getCharts()
     
     newChartForm
 
-    addEventListener("submit", (e) => 
-        createFormHandler(e))
+    eventListener()
     
     
-})
+};
 
 // function getCharts() {
 //     fetch(baseUrl)
@@ -27,6 +28,14 @@ document.addEventListener('DOMContentLoaded',() => {
 //         return charts
 //     })
 // }
+
+// not taking in eventHandler = VOID
+function eventListener() {
+    newChartForm.addEventListener("submit", function(e){
+        createFormHandler(e);
+    })
+    
+};
 
 function postCharts(title, content, date, mood_id) {
     const bodyData = {title, content, date, mood_id}
@@ -69,3 +78,4 @@ function createFormHandler(e) {
     postCharts(titleInput, contentInput, dateInput, moodId)
 }
 
+init();
