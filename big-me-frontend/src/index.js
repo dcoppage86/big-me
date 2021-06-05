@@ -1,14 +1,14 @@
 const newApi = new ApiService
 const newChartForm = document.querySelector("#new-chart-form")
-const newChartCard = document.querySelector('#chart-container')
+
 
 document.addEventListener('DOMContentLoaded',() => {
     newApi.getCharts()
     
     newChartForm
 
-    newChartForm.addEventListener("submit", (e) => 
-    createFormHandler(e))
+    addEventListener("submit", (e) => 
+        createFormHandler(e))
     
     
 })
@@ -40,7 +40,7 @@ function postCharts(title, content, date, mood_id) {
     .then(chart => {
         let newChart = new Chart(chart)
 
-        newChartCard.innerHTML += newChart.renderChartCard()
+        const newChartCard = document.querySelector('#chart-container').innerHTML += newChart.renderChartCard()
     })
 }
 
