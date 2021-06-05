@@ -1,11 +1,12 @@
 class Chart {
+    static all = []
 
-    constructor({id, title, content, date, mood}) {
-        this.id = id
-        this.title = title
-        this.content = content
-        this.date = date
-        this.mood = mood
+    constructor(chart) {
+        this.id = chart.id
+        this.title = chart.title
+        this.content = chart.content
+        this.date = chart.date
+        this.mood = chart.mood
         Chart.all.push(this)
     }
 
@@ -22,5 +23,3 @@ class Chart {
 
 
 }
-
-Chart.all = [];

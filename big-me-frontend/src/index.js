@@ -15,11 +15,14 @@ function getCharts() {
     fetch(baseUrl)
     .then(response => response.json())
     .then(charts => {
-        charts.data.forEach(chart => {
+        // let charts = Chart.all
+        charts.forEach(chart => {
+            
             const newChart = new Chart(chart)
 
             document.querySelector('#chart-container').innerHTML += newChart.renderChartCard();
         })
+        return charts
     })
 }
 
