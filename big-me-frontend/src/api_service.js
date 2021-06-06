@@ -21,7 +21,7 @@
 
     postCharts(title, content, date, mood_id) {
         const bodyData = {title, content, date, mood_id}
-        return fetch(baseUrl, {
+        return fetch(this.chartsUrl, {
                 // POST request
                 method: "POST",
                 headers: {"Content-Type": "application/json"},

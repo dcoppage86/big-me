@@ -1,37 +1,23 @@
 const newApi = new ApiService
-const newChartForm = document.querySelector("#new-chart-form")
-const titleInput = document.querySelector('#input-title')
-const contentInput = document.querySelector('#input-content')
-const dateInput = document.querySelector('#start')
-const moodId = parseInt(document.querySelector('#moods'))
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed');
+
+
+document.addEventListener('DOMContentLoaded',() => {
     newApi.getCharts();
-    newChartForm;
-
-    newChartForm.addEventListener("submit", e => {
-        createFormHandler(e);
-    });
     
-});
+    const newChartForm = document.querySelector("#new-chart-form")
+    newChartForm.addEventListener("submit", (e) =>
+        createFormHandler(e)
+        );
 
-// document(){
-//     newChartForm.addEventListener("submit", function(e){
-//         e.preventDefault()
-//         titleInput.value
-//         contentInput.value
-//         dateInput.value
-//         moodId.value
-//     })
-
-    // newApi.getCharts();
-    // newChartForm;
-//     // addEventListener("submit", (e) => 
-//     //     createFormHandler(e))
+    const chartContainer =  document.querySelector("#chart-container")
+    chartContainer.addEventListener("click", (e) =>
+        console.log("clicked")
+        );
     
     
-// }
+    
+})
 
 // function getCharts() {
 //     fetch(baseUrl)
@@ -47,17 +33,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 //         return charts
 //     })
 // }
-
-// function eventListener() {
-//     newChartForm.addEventListener("submit", function(e){
-//         e.preventDefault()
-//         titleInput.value
-//         contentInput.value
-//         dateInput.value
-//         moodId.value
-//         // createFormHandler(e)
-//     }
-// )};
 
 // function postCharts(title, content, date, mood_id) {
 //     const bodyData = {title, content, date, mood_id}
@@ -97,7 +72,6 @@ function createFormHandler(e) {
     const contentInput = document.querySelector('#input-content').value
     const dateInput = document.querySelector('#start').value
     const moodId = parseInt(document.querySelector('#moods').value)
-    postCharts(titleInput, contentInput, dateInput, moodId)
+    newApi.postCharts(titleInput, contentInput, dateInput, moodId)
 }
-
 
