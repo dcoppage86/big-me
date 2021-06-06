@@ -1,4 +1,6 @@
 class Api::V1::ChartsController < ApplicationController
+    # before_action :set_chart, only: [:update, :destroy]
+
     def index
         charts = Chart.all
         render json: charts
@@ -19,8 +21,8 @@ class Api::V1::ChartsController < ApplicationController
     end
     
     def update
-        chart = Chart.find(params[:id])
-        if chart.update_attributes(params[chart])
+        chart = Chart.find_by(id: params[:id])
+        if chart && chart.update(chart_params)
           render json: chart, status: :accepted
         else
           render json: {errors: chart.errors.full_messages}
@@ -28,7 +30,7 @@ class Api::V1::ChartsController < ApplicationController
     end
 
     def destroy
-        chart = Chart.find(params[:id])
+
         if chart.destroy
             render json: chart, status: :accepted
         else
@@ -41,11 +43,11 @@ class Api::V1::ChartsController < ApplicationController
     private 
     
     def chart_params
-        params.require(:chart).permit(:title, :content, :date, :mood, :mood_id)
+        params.require(:chart).permit(:id, :title, :content, :date, :mood, :mood_id)
     end
 
     def set_chart
-        chart = Chart.find(params[:id, :title, :date, :content, :mood_id])
+        chart = Chart.find_by(params[:id])
     end
     
     
