@@ -11,9 +11,12 @@ document.addEventListener('DOMContentLoaded',() => {
         );
 
     const chartContainer =  document.querySelector("#chart-container")
-    chartContainer.addEventListener("click", (e) =>
-        console.log("clicked")
-        );
+    chartContainer.addEventListener("click", (e) => {
+        const id = parseInt(e.target.dataset.id)
+        const chart = Chart.findById(id)
+        console.log(chart)
+        } 
+    );
     
     
     
