@@ -3,16 +3,15 @@ const newChartForm = document.querySelector("#new-chart-form")
 
 
 function init(){
-    console.log("Dom Has Loaded")
-
     newApi.getCharts()
     
     newChartForm
 
-    eventListener()
+    addEventListener("submit", (e) => 
+        createFormHandler(e))
     
     
-};
+}
 
 // function getCharts() {
 //     fetch(baseUrl)
@@ -29,12 +28,9 @@ function init(){
 //     })
 // }
 
-// not taking in eventHandler = VOID
 function eventListener() {
-    newChartForm.addEventListener("submit", function(e){
-        createFormHandler(e);
-    })
-    
+    newChartForm.addEventListener("submit", (e) =>
+    createFormHandler(e))
 };
 
 function postCharts(title, content, date, mood_id) {
@@ -78,4 +74,4 @@ function createFormHandler(e) {
     postCharts(titleInput, contentInput, dateInput, moodId)
 }
 
-init();
+init()
