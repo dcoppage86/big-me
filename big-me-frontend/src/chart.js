@@ -8,7 +8,11 @@ class Chart {
         this.date = chart.date
         this.mood = chart.mood
         Chart.all.push(this)
-    }
+    };
+
+    static findById(id) {
+        return this.all.find(chart => chart.id === id)
+    };
 
     renderChartCard() {
         return `
@@ -19,7 +23,7 @@ class Chart {
                 <p hidden>${this.mood_id}</p>
                 <button data-id=${this.id} class="submit bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded-full"> Edit </button>
             </div>`;
-    }
+    };
 
 
 }
