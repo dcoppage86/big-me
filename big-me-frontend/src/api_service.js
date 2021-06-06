@@ -19,5 +19,21 @@
         })
     }
 
+    postCharts(title, content, date, mood_id) {
+        const bodyData = {title, content, date, mood_id}
+        return fetch(baseUrl, {
+                // POST request
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(bodyData)
+            })
+            .then(response => response.json())
+            .then(chart => {
+                let newChart = new Chart(chart)
+    
+                const newChartCard = document.querySelector('#chart-container').innerHTML += newChart.renderChartCard()
+            })
+    }
+
 
 }

@@ -1,17 +1,37 @@
 const newApi = new ApiService
 const newChartForm = document.querySelector("#new-chart-form")
+const titleInput = document.querySelector('#input-title')
+const contentInput = document.querySelector('#input-content')
+const dateInput = document.querySelector('#start')
+const moodId = parseInt(document.querySelector('#moods'))
 
+document.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    newApi.getCharts();
+    newChartForm;
 
-function init(){
-    newApi.getCharts()
+    newChartForm.addEventListener("submit", e => {
+        createFormHandler(e);
+    });
     
-    newChartForm
+});
 
-    addEventListener("submit", (e) => 
-        createFormHandler(e))
+// document(){
+//     newChartForm.addEventListener("submit", function(e){
+//         e.preventDefault()
+//         titleInput.value
+//         contentInput.value
+//         dateInput.value
+//         moodId.value
+//     })
+
+    // newApi.getCharts();
+    // newChartForm;
+//     // addEventListener("submit", (e) => 
+//     //     createFormHandler(e))
     
     
-}
+// }
 
 // function getCharts() {
 //     fetch(baseUrl)
@@ -28,26 +48,32 @@ function init(){
 //     })
 // }
 
-function eventListener() {
-    newChartForm.addEventListener("submit", (e) =>
-    createFormHandler(e))
-};
+// function eventListener() {
+//     newChartForm.addEventListener("submit", function(e){
+//         e.preventDefault()
+//         titleInput.value
+//         contentInput.value
+//         dateInput.value
+//         moodId.value
+//         // createFormHandler(e)
+//     }
+// )};
 
-function postCharts(title, content, date, mood_id) {
-    const bodyData = {title, content, date, mood_id}
-    fetch(baseUrl, {
-        // POST request
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(bodyData)
-    })
-    .then(response => response.json())
-    .then(chart => {
-        let newChart = new Chart(chart)
+// function postCharts(title, content, date, mood_id) {
+//     const bodyData = {title, content, date, mood_id}
+//     fetch(baseUrl, {
+//         // POST request
+//         method: "POST",
+//         headers: {"Content-Type": "application/json"},
+//         body: JSON.stringify(bodyData)
+//     })
+//     .then(response => response.json())
+//     .then(chart => {
+//         let newChart = new Chart(chart)
 
-        const newChartCard = document.querySelector('#chart-container').innerHTML += newChart.renderChartCard()
-    })
-}
+//         const newChartCard = document.querySelector('#chart-container').innerHTML += newChart.renderChartCard()
+//     })
+// }
 
 function patchChart(title, content, date, mood_id) {
     const bodyJSON = (title, content, date, mood_id)
@@ -74,4 +100,4 @@ function createFormHandler(e) {
     postCharts(titleInput, contentInput, dateInput, moodId)
 }
 
-init()
+
