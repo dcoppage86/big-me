@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded',() => {
     chartContainer.addEventListener("click", (e) => {
         const id = parseInt(e.target.dataset.id)
         const chart = Chart.findById(id)
-        console.log(chart)
+        document.querySelector("#chart-container").innerHTML += chart.renderEditChart();
         } 
     );
     
@@ -78,3 +78,13 @@ function createFormHandler(e) {
     newApi.postCharts(titleInput, contentInput, dateInput, moodId)
 }
 
+function editFormHandler(e) {
+    e.preventDefault()
+    const id = parseInt(e.target.dataset.id)
+    const chart = Chart.findById(id)
+    const title = e.querySelector('#input-title').value
+    const content = e.querySelector('#input-content').value
+    const date = e.querySelector('#start').value
+    const mood_id = parseInt(e.querySelector('#moods').value)
+    editChart(chart, title, content, date, mood_id)
+}
