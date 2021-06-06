@@ -35,15 +35,16 @@
             })
     }
 
-    patchChart(title, content, date, mood_id) {
-        const bodyJSON = (title, content, date, mood_id)
-        return fetch(`${this.chartsUrl}/${id}`,{
+    patchChart(chart) {
+        return fetch(this.chartsUrl + `/${chart.id}`,{
                 method: 'PATCH',
                 headers: {
                     "Content-Type": 'application/json',
                     Accept: 'application/json',
                 },
-                body: JSON.stringify(bodyJSON)
+                body: JSON.stringify({
+                    chart: chart
+                })
             })
             .then(response = response.json())
             .then(updatedChart => console.log(updatedChart));

@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded',() => {
         }
     );
     document.querySelector("#edit-chart").addEventListener('submit', e =>
-    editFormHandler());
+    editFormHandler(e));
     
     
 })
@@ -86,7 +86,6 @@ function editFormHandler(e) {
     const chart = Chart.findById(id)
     const title = e.target.querySelector('#input-title').value
     const content = e.target.querySelector('#input-content').value
-    const date = e.target.querySelector('#start').value
     const mood_id = parseInt(e.target.querySelector('#moods').value)
-    newApi.patchChart(chart, title, content, date, mood_id)
+    newApi.patchChart(chart, title, content, mood_id)
 }
