@@ -35,5 +35,19 @@
             })
     }
 
+    patchChart(title, content, date, mood_id) {
+        const bodyJSON = (title, content, date, mood_id)
+        return fetch(`${this.chartsUrl}/${id}`,{
+                method: 'PATCH',
+                headers: {
+                    "Content-Type": 'application/json',
+                    Accept: 'application/json',
+                },
+                body: JSON.stringify(bodyJSON)
+            })
+            .then(response = response.json())
+            .then(updatedChart => console.log(updatedChart));
+    }
+
 
 }

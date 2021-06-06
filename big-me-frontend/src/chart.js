@@ -14,6 +14,7 @@ class Chart {
         return this.all.find(chart => chart.id === id)
     };
 
+
     renderChartCard() {
         return `
             <div data-id=${this.id} class="bg-blue-300 rounded-lg border shadow-lg p-10">
@@ -26,20 +27,20 @@ class Chart {
     };
 
     renderEditChart() {
-        `
+        return `
         <form data-id=${this.id} >
                 <h3>Edit Your Chart</h3>
                 <strong>Title:</strong>
                 <br>
-                <input id='input-title' type="text" name="title" value="" placeholder="Fill in title..." class="input-text">
+                <input id='input-title' type="text" name="title" value="${this.title}" placeholder="Fill in title..." class="input-text">
                 <br>
                 <br>
                 <strong>How Was Your Day?</strong>
                 <br>
-                <textarea id='input-content' type="text" name="content" value="" cols="80" rows="8" placeholder="Tell us about your day..." class="input-text"></textarea>
+                <textarea id='input-content' type="text" name="content" value="" cols="80" rows="8" placeholder="Tell us about your day..." class="input-text">${this.content}</textarea>
                 <br>
                 <br>
-                <select id='moods' name="moods">
+                <select id='moods' name="moods" value"${this.mood}">
                     <option value="1">Happy</option>
                     <option value="2">Sad</option>
                     <option value="3">Frustrated</option>
