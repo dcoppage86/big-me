@@ -35,22 +35,26 @@
             })
     }
 
-    patchChart(chart, title, content, date, mood_id) {
-        const bodyData = {title, content, date, mood_id}
+    patchChart(chart) {
         return fetch(this.chartsUrl + `/${chart.id}`,{
                 method: 'PATCH',
                 headers: {
                     "Content-Type": 'application/json',
                     Accept: 'application/json',
                 },
-                body: JSON.stringify(bodyData)
+                body: JSON.stringify({
+                    chart
+                })
             })
             .then(response => response.json())
-            .then(updatedChart => {
-                console.log(updatedChart)
-                let newChart = new Chart(updatedChart)
-                document.querySelector("#chart-container").innerHTML = newChart.renderChartCard()
-            })
+            // .then(updatedChart => {
+            //     console.log(updatedChart)
+            //     let newChart = Chart.findById(updatedChart.id)
+            //     newChart
+                // document.querySelector("#chart-container").innerHTML = newChart.renderChartCard()
+                // document.querySelector(`div[data-id="${chart.id}"]`).innerHTML = newChart.renderChartCard()
+                
+            
     }
 
 
