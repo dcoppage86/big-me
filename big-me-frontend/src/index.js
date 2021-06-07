@@ -5,83 +5,50 @@ document.addEventListener('DOMContentLoaded',() => {
     newApi.getCharts();
     
     const newChartForm = document.querySelector("#new-chart-form")
-    newChartForm.addEventListener("submit", (e) =>
+    newChartForm.addEventListener("submit", (e) => {
         createFormHandler(e)
-        );
+        hideChartForm()
+    });
 
     const chartContainer =  document.querySelector("#chart-container")
+    const editChart = document.querySelector("#edit-chart")
+    const chartFormContainer = document.querySelector(".chart-form-container")
+    const homeBtn = document.querySelector(".home-btn")
+
     chartContainer.addEventListener("click", (e) => {
         e.preventDefault(e)
         const id = parseInt(e.target.dataset.id)
         let chart = Chart.findById(id)
-        document.querySelector("#edit-chart").innerHTML = chart.renderEditChart();
+        editChart.innerHTML = chart.renderEditChart();
         }
     );
-    document.querySelector("#edit-chart").addEventListener('submit', e => {
+    
+    editChart.addEventListener('submit', e => {
         editFormHandler(e);
-        // console.log(e.target.value)
         hideUpdateForm()
 
     })
+
+    homeBtn.addEventListener('click', (e) => {
+        e.preventDefault(e);
+        showChartForm()
+    });
+
+    function hideChartForm() {
+        chartFormContainer.style.display = "none"
+    }
+
+    function showChartForm() {
+        chartFormContainer.style.display = "block"
+    }
     
     function hideUpdateForm() {
         const editChart = document.querySelector("#edit-chart")
         editChart.style.display = "none"
     }
+
+
 })
-
-// function hideUpdateForm() {
-//     const editChart = document.querySelector("#edit-chart")
-//     editChart.style.display = "none"
-// }
-
-// function getCharts() {
-//     fetch(baseUrl)
-//     .then(response => response.json())
-//     .then(charts => {
-//         // let charts = Chart.all
-//         charts.forEach(chart => {
-            
-//             const newChart = new Chart(chart)
-
-//             document.querySelector('#chart-container').innerHTML += newChart.renderChartCard();
-//         })
-//         return charts
-//     })
-// }
-
-// function postCharts(title, content, date, mood_id) {
-//     const bodyData = {title, content, date, mood_id}
-//     fetch(baseUrl, {
-//         // POST request
-//         method: "POST",
-//         headers: {"Content-Type": "application/json"},
-//         body: JSON.stringify(bodyData)
-//     })
-//     .then(response => response.json())
-//     .then(chart => {
-//         let newChart = new Chart(chart)
-
-//         const newChartCard = document.querySelector('#chart-container').innerHTML += newChart.renderChartCard()
-//     })
-// }
-
-// function patchChart(title, content, date, mood_id) {
-//     const bodyJSON = (title, content, date, mood_id)
-//     fetch(baseUrl + `/${chart.id}`,{
-//         method: 'PATCH',
-//         headers: {
-//             "Content-Type": 'application/json',
-//             Accept: 'application/json',
-//         },
-//         body: JSON.stringify(bodyJSON)
-//     })
-//     .then(response = response.json())
-//     .then(updatedChart => console.log(updatedChart));
-// }
-
-
-
 
 function createFormHandler(e) {
     e.preventDefault()
