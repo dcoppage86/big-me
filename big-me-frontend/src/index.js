@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded',() => {
 
     const chartContainer =  document.querySelector("#chart-container")
     chartContainer.addEventListener("click", (e) => {
+        e.preventDefault(e)
         const id = parseInt(e.target.dataset.id)
         let chart = Chart.findById(id)
         document.querySelector("#edit-chart").innerHTML = chart.renderEditChart();
@@ -95,7 +96,6 @@ function editFormHandler(e) {
     e.preventDefault()
     const id = parseInt(e.target.dataset.id)
     const chart = Chart.findById(id)
-    console.log(chart)
     const title = e.target.querySelector('#input-title').value
     const content = e.target.querySelector('#input-content').value
     const date = e.target.querySelector('#start').value

@@ -47,8 +47,9 @@
             })
             .then(response => response.json())
             .then(updatedChart => {
+                console.log(updatedChart)
                 let newChart = new Chart(updatedChart)
-                newChart.renderChartCard()
+                document.querySelector("#chart-container").innerHTML = newChart.renderChartCard()
             })
     }
 
