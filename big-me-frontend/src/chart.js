@@ -34,6 +34,7 @@ class Chart {
                 <br>
                 <input id='input-title' type="text" name="title" value="${this.title}" placeholder="Fill in title..." class="input-text">
                 <br>
+                <input type="date" id="start" name="date-start" value="${this.date}" min="2021-05-28" max="2030-01-01">
                 <br>
                 <strong>How Was Your Day?</strong>
                 <br>

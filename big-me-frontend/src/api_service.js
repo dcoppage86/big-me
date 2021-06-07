@@ -35,8 +35,8 @@
             })
     }
 
-    patchChart(chart, title, content, mood_id) {
-        const bodyData = {title, content, mood_id}
+    patchChart(chart, title, content, date, mood_id) {
+        const bodyData = {title, content, date, mood_id}
         return fetch(this.chartsUrl + `/${chart.id}`,{
                 method: 'PATCH',
                 headers: {
@@ -46,7 +46,10 @@
                 body: JSON.stringify(bodyData)
             })
             .then(response => response.json())
-            .then(updatedChart => console.log(updatedChart))
+            .then(updatedChart => {
+                let newChart = new Chart(updatedChart)
+                newChart.renderChartCard()
+            })
     }
 
 

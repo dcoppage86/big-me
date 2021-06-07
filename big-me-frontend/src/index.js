@@ -1,7 +1,6 @@
 const newApi = new ApiService
 
 
-
 document.addEventListener('DOMContentLoaded',() => {
     newApi.getCharts();
     
@@ -13,15 +12,27 @@ document.addEventListener('DOMContentLoaded',() => {
     const chartContainer =  document.querySelector("#chart-container")
     chartContainer.addEventListener("click", (e) => {
         const id = parseInt(e.target.dataset.id)
-        const chart = Chart.findById(id)
+        let chart = Chart.findById(id)
         document.querySelector("#edit-chart").innerHTML = chart.renderEditChart();
         }
     );
-    document.querySelector("#edit-chart").addEventListener('submit', e =>
-    editFormHandler(e));
+    document.querySelector("#edit-chart").addEventListener('submit', e => {
+        editFormHandler(e);
+        // console.log(e.target.value)
+        hideUpdateForm()
+
+    })
     
-    
+    function hideUpdateForm() {
+        const editChart = document.querySelector("#edit-chart")
+        editChart.style.display = "none"
+    }
 })
+
+// function hideUpdateForm() {
+//     const editChart = document.querySelector("#edit-chart")
+//     editChart.style.display = "none"
+// }
 
 // function getCharts() {
 //     fetch(baseUrl)
@@ -84,8 +95,10 @@ function editFormHandler(e) {
     e.preventDefault()
     const id = parseInt(e.target.dataset.id)
     const chart = Chart.findById(id)
+    console.log(chart)
     const title = e.target.querySelector('#input-title').value
     const content = e.target.querySelector('#input-content').value
+    const date = e.target.querySelector('#start').value
     const mood_id = parseInt(e.target.querySelector('#moods').value)
-    newApi.patchChart(chart, title, content, mood_id)
+    newApi.patchChart(chart, title, content, date, mood_id)
 }
