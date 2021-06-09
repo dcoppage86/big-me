@@ -30,7 +30,7 @@ class Api::V1::ChartsController < ApplicationController
     end
 
     def destroy
-
+        chart = Chart.find_by(id: params[:id])
         if chart.destroy
             render json: chart, status: :accepted
         else
