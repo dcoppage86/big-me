@@ -1,19 +1,22 @@
+
 const newApi = new ApiService
 
 
 document.addEventListener('DOMContentLoaded',() => {
     newApi.getCharts();
-    
-    const newChartForm = document.querySelector("#new-chart-form")
-    newChartForm.addEventListener("submit", (e) => {
-        createFormHandler(e)
-        hideChartForm()
-    });
 
+
+    const newChartForm = document.querySelector("#new-chart-form")
     const chartContainer =  document.querySelector("#chart-container")
     const editChart = document.querySelector("#edit-chart")
     const chartFormContainer = document.querySelector(".chart-form-container")
     const homeBtn = document.querySelector(".home-btn")
+    const delBtn = document.querySelector(".del-btn")
+
+    newChartForm.addEventListener("submit", (e) => {
+        createFormHandler(e)
+        hideChartForm()
+    });
 
     chartContainer.addEventListener("click", (e) => {
         e.preventDefault(e)
@@ -27,32 +30,34 @@ document.addEventListener('DOMContentLoaded',() => {
     
     editChart.addEventListener('submit', e => {
         editFormHandler(e);
-        // hideUpdateForm()
+        hideChartForm();
+        console.log(chartContainer.children)
         editChart.innerHTML = ""
-
     })
 
     homeBtn.addEventListener('click', (e) => {
         e.preventDefault(e);
         showChartForm()
+        hideUpdateForm()
     });
+
+
 
     function hideChartForm() {
         chartFormContainer.style.display = "none"
     }
 
     function showChartForm() {
-        chartFormContainer.style.display = "block"
-    }
-    
-    function hideUpdateForm() {
-        editChart.style.display = "none"
+        chartFormContainer.style.display = "center block"
     }
 
     function showEditForm() {
         editChart.style.display = "block"
     }
 
+    function hideUpdateForm() {
+        editChart.style.display = "none"
+    }
 
 })
 
@@ -74,5 +79,9 @@ function editFormHandler(e) {
     chart.date = e.target.querySelector('#start').value
     chart.mood_id = parseInt(e.target.querySelector('#moods').value)
     newApi.patchChart(chart)
-    .then 
+    const chartContainer =  document.querySelector("#chart-container")
+    chartContainer.innerHTML = ""
+    Chart.all.forEach(c => chartContainer.innerHTML += c.renderChartCard())
 }
+
+

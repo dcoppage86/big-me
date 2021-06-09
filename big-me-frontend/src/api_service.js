@@ -1,6 +1,5 @@
  class ApiService {
      constructor() {
-        this.baseUrl = "http://localhost:3000/api/v1"
         this.chartsUrl = "http://localhost:3000/api/v1/charts"
     }
 
@@ -47,15 +46,6 @@
                 })
             })
             .then(response => response.json())
-            // .then(updatedChart => {
-            //     console.log(updatedChart)
-            //     let newChart = Chart.findById(updatedChart.id)
-            //     newChart
-                // document.querySelector("#chart-container").innerHTML = newChart.renderChartCard()
-                // document.querySelector(`div[data-id="${chart.id}"]`).innerHTML = newChart.renderChartCard()
-                
-            
-    }
-
+        }
 
 }

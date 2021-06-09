@@ -17,7 +17,7 @@ class Chart {
 
     renderChartCard() {
         return `
-            <div data-id=${this.id} class="bg-blue-300 rounded-lg border shadow-lg p-10">
+            <div data-id=${this.id} id="chart-${this.id}" class="bg-blue-300 rounded-lg border shadow-lg p-10">
                 <strong>${this.date}: ${this.title}</strong>
                 <p>${this.content}</p>
                 <br>
@@ -54,9 +54,11 @@ class Chart {
                 <br>
                 <br>
                 <input id='edit-btn' type="submit" name="submit" value="Edit Chart" class="submit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                
             </form>
         `
     }
+
 
 
 }
