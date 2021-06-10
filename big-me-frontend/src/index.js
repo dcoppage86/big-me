@@ -117,6 +117,6 @@ function editFormHandler(e) {
     const chartContainer =  document.querySelector("#chart-container")
     chartContainer.innerHTML = ""
     Chart.all.forEach(c => chartContainer.innerHTML += c.renderChartCard())
-}
+};
 
 
