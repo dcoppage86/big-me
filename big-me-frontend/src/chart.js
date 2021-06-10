@@ -6,7 +6,6 @@ class Chart {
         this.title = chart.title
         this.content = chart.content
         this.date = chart.date
-        this.mood = chart.mood
         Chart.all.push(this)
     };
 

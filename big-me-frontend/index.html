@@ -5,21 +5,25 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <link href="build/styles.css" rel="stylesheet">
-        <script type="text/javascript" src="src/api_service.js"></script>
-        <script type="text/javascript" src="src/mood.js"></script>
-        <script type="text/javascript" src="src/chart.js"></script>
-        <script type="text/javascript" src="src/index.js"></script>
-        
+        <link href="build/styles.css" rel="stylesheet">    
     </head>
     <body>
+        
+        <ul class="flex">
+            <li class="flex-1 mr-2">
+              <a class="home-btn text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white">Home</a>
+            </li>
+            <li class="flex-1 mr-2">
+              <a class="shw-cht-btn text-center block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-2 px-4">New Chart</a>
+            </li>
+          </ul>
+        
+
         <h1 class="flex items-center justify-center text-6xl bg-indigo-300 text-red-900 rounded-lg border shadow-lg p-10"> Welcome to BigMe!</h1>
         <p class="flex items-center justify-center">A place to handle your daily feelings!</p>
-        <button class="home-btn flex items-center justify- center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            HOME
-        </button>
         
-        <div class="flex items-center justify-center bg-blue-300 rounded-lg border shadow-lg p-10 chart-form-container">
+        
+        <div class="bg-blue-300 rounded-lg border shadow-lg p-10 chart-form-container">
             <form id="new-chart-form" >
                 <h3>Daily Entry</h3>
                 <strong>Enter Todays Date:</strong>
@@ -66,4 +70,10 @@
         </div>
     
     </body>
+    <footer>
+        <script type="text/javascript" src="src/api_service.js"></script>
+        <script type="text/javascript" src="src/mood.js"></script>
+        <script type="text/javascript" src="src/chart.js"></script>
+        <script type="text/javascript" src="src/index.js"></script>
+    </footer>
 </html>

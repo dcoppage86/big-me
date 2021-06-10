@@ -1,65 +1,71 @@
 
 const newApi = new ApiService
 
+const newChartForm = document.querySelector("#new-chart-form")
+const editChart = document.querySelector("#edit-chart")
+const chartFormContainer = document.querySelector(".chart-form-container")
+const editBtn = document.querySelector(".edt-btn")
+const chartContainer =  document.querySelector("#chart-container")
+const homeBtn = document.querySelector(".home-btn")
+const showChtBtn = document.querySelector(".shw-cht-btn")
+
 
 document.addEventListener('DOMContentLoaded',() => {
     newApi.getCharts();
+    eventListeners()
+    
 
+})
 
-    const newChartForm = document.querySelector("#new-chart-form")
-    const chartContainer =  document.querySelector("#chart-container")
-    const editChart = document.querySelector("#edit-chart")
-    const chartFormContainer = document.querySelector(".chart-form-container")
-    const homeBtn = document.querySelector(".home-btn")
-    const delBtn = document.querySelector(".del-btn")
-
-    newChartForm.addEventListener("submit", (e) => {
+function eventListeners(){
+    newChartForm.addEventListener("submit", function(e) {
         createFormHandler(e)
         hideChartForm()
     });
 
-    chartContainer.addEventListener("click", (e) => {
+    chartContainer.addEventListener("click", function(e) {
         e.preventDefault(e)
         showEditForm()
-        console.log("clicked", e)
+        hideChartForm()
+        hideCharts()
         const id = parseInt(e.target.dataset.id)
         let chart = Chart.findById(id)
         editChart.innerHTML = chart.renderEditChart();
         }
     );
-    
-    editChart.addEventListener('submit', e => {
+        
+    editChart.addEventListener('submit', function (e) {
         editFormHandler(e);
-        hideChartForm();
+        showChartForm()
+        showCharts()
         console.log(chartContainer.children)
         editChart.innerHTML = ""
     })
 
-    homeBtn.addEventListener('click', (e) => {
-        e.preventDefault(e);
-        showChartForm()
-        hideUpdateForm()
-    });
 
+}
+    
 
+function hideChartForm() {
+    chartFormContainer.style.display = "none"
+}
 
-    function hideChartForm() {
-        chartFormContainer.style.display = "none"
-    }
+function showChartForm() {
+    chartFormContainer.style.display = "block"
+}
 
-    function showChartForm() {
-        chartFormContainer.style.display = "center block"
-    }
+function hideCharts() {
+    chartContainer.style.display = "none"
+}
 
-    function showEditForm() {
-        editChart.style.display = "block"
-    }
+function showCharts() {
+    chartContainer.style.display = "block"
+}
+    
 
-    function hideUpdateForm() {
-        editChart.style.display = "none"
-    }
-
-})
+function showEditForm() {
+    editChart.style.display = "block"
+}
 
 function createFormHandler(e) {
     e.preventDefault()
@@ -67,6 +73,7 @@ function createFormHandler(e) {
     const contentInput = document.querySelector('#input-content').value
     const dateInput = document.querySelector('#start').value
     const moodId = parseInt(document.querySelector('#moods').value)
+    const mood = document.querySelector('#moods').value
     newApi.postCharts(titleInput, contentInput, dateInput, moodId)
 }
 
