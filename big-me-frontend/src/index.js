@@ -2,17 +2,21 @@
 const newApi = new ApiService
 
 const newChartForm = document.querySelector("#new-chart-form")
+const greetingContainer = document.querySelector(".greeting-container")
 const editChart = document.querySelector("#edit-chart")
 const chartFormContainer = document.querySelector(".chart-form-container")
 const editBtn = document.querySelector(".edt-btn")
 const chartContainer =  document.querySelector("#chart-container")
 const homeBtn = document.querySelector(".home-btn")
 const showChtBtn = document.querySelector(".shw-cht-btn")
+const allChtsBtn = document.querySelector(".chts-btn")
 
 
 document.addEventListener('DOMContentLoaded',() => {
     newApi.getCharts();
-    eventListeners()
+    hideCharts();
+    hideChartForm();
+    eventListeners();
     
 
 })
@@ -21,6 +25,7 @@ function eventListeners(){
     newChartForm.addEventListener("submit", function(e) {
         createFormHandler(e)
         hideChartForm()
+        showCharts()
     });
 
     chartContainer.addEventListener("click", function(e) {
@@ -36,13 +41,28 @@ function eventListeners(){
         
     editChart.addEventListener('submit', function (e) {
         editFormHandler(e);
-        showChartForm()
+        hideChartForm()
         showCharts()
         console.log(chartContainer.children)
         editChart.innerHTML = ""
+    });
+
+    homeBtn.addEventListener('click', function (e) {
+        showGreeting();
+        hideChartForm();
+        hideCharts();
+    });
+
+    showChtBtn.addEventListener('click', function(e) {
+        hideGreeting();
+        showChartForm();
+    });
+
+    allChtsBtn.addEventListener('click', function(e) {
+        hideGreeting();
+        hideChartForm();
+        showCharts();
     })
-
-
 }
     
 
@@ -65,6 +85,14 @@ function showCharts() {
 
 function showEditForm() {
     editChart.style.display = "block"
+}
+
+function hideGreeting() {
+    greetingContainer.style.display = "none"
+}
+
+function showGreeting() {
+    greetingContainer.style.display = "contents"
 }
 
 function createFormHandler(e) {
