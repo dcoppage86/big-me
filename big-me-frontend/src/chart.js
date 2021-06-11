@@ -6,7 +6,10 @@ class Chart {
         this.title = chart.title
         this.content = chart.content
         this.date = chart.date
+        this.mood = new Mood(moods)
+        this.feeling = moods.feeling
         Chart.all.push(this)
+        console.log(this.mood)
     };
 
     static findById(id) {
@@ -20,6 +23,8 @@ class Chart {
                 <strong>${this.date}: ${this.title}</strong>
                 <p>${this.content}</p>
                 <br>
+                <br>
+                <p>${this.mood}</p>
                 <p>${this.mood_id}</p>
                 <button data-id=${this.id} class="edit-btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded-full"> Edit </button><button data-id=${this.id} class="dlt-btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded-full">Delete</button>
             </div>`;

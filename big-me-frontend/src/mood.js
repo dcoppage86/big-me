@@ -1,7 +1,8 @@
 class Mood {
 
-    constructor(mood) {
-        this.id = mood.id
+    constructor(mood, id) {
+        this.mood = id
         this.feeling = mood.feeling
+        console.log(this.mood)
     }
 }
