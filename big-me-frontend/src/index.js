@@ -10,6 +10,10 @@ const chartContainer =  document.querySelector("#chart-container")
 const homeBtn = document.querySelector(".home-btn")
 const showChtBtn = document.querySelector(".shw-cht-btn")
 const allChtsBtn = document.querySelector(".chts-btn")
+const titleInput = document.querySelector('#input-title').value
+const contentInput = document.querySelector('#input-content').value
+const dateInput = document.querySelector('#start').value
+const moodId = parseInt(document.querySelector('#moods').value)
 
 
 document.addEventListener('DOMContentLoaded',() => {
@@ -19,7 +23,7 @@ document.addEventListener('DOMContentLoaded',() => {
     eventListeners();
     
 
-})
+});
 
 function eventListeners(){
     newChartForm.addEventListener("submit", function(e) {
@@ -45,12 +49,12 @@ function eventListeners(){
         if(e.target.matches(".dlt-btn")){
             console.log('clicked');
             e.preventDefault();
-            let id = parseInt(e.target.dataset.id)
-            let chart = Chart.findById(id)
-            newApi.deleteChart(id)
-            e.target.parentNode.remove()
+            let id = parseInt(e.target.dataset.id);
+            let chart = Chart.findById(id);
+            newApi.deleteChart(id);
+            e.target.parentNode.remove();
         }
-    })
+    });
         
     editChart.addEventListener('submit', function (e) {
         editFormHandler(e);
@@ -114,8 +118,7 @@ function createFormHandler(e) {
     const titleInput = document.querySelector('#input-title').value
     const contentInput = document.querySelector('#input-content').value
     const dateInput = document.querySelector('#start').value
-    const moodId = parseInt(document.querySelector('#moods').value)
-    const mood = document.querySelector('#moods').value
+    const moodId = document.querySelector('#moods').value
     newApi.postCharts(titleInput, contentInput, dateInput, moodId)
 }
 
@@ -126,7 +129,7 @@ function editFormHandler(e) {
     chart.title = e.target.querySelector('#input-title').value
     chart.content = e.target.querySelector('#input-content').value
     chart.date = e.target.querySelector('#start').value
-    chart.mood_id = parseInt(e.target.querySelector('#moods').value)
+    chart.mood_id = e.target.querySelector('#moods').value
     newApi.patchChart(chart)
     const chartContainer =  document.querySelector("#chart-container")
     chartContainer.innerHTML = ""
