@@ -3,7 +3,7 @@ class Api::V1::ChartsController < ApplicationController
 
     def index
         charts = Chart.all
-        render json: charts
+        render json: ChartSerializer.new(charts)
     end
 
     def create
@@ -31,7 +31,8 @@ class Api::V1::ChartsController < ApplicationController
 
     def destroy
         chart = Chart.find_by(id: params[:id])
-        if chart.destroy
+        if chart
+            chart.destroy
             render json: chart, status: :accepted
         else
             render json: {errors: chart.errors.full_messages}
@@ -43,7 +44,7 @@ class Api::V1::ChartsController < ApplicationController
     private 
     
     def chart_params
-        params.require(:chart).permit(:id, :title, :content, :date, :mood, :mood_id)
+        params.require(:chart).permit(:id, :title, :content, :date, :mood_id)
     end
 
     def set_chart

@@ -8,15 +8,12 @@
 Mood.destroy_all
 
 mood = Mood.create([
-    {feeling: "Happy"},
-    {feeling: "Sad"},
-    {feeling: "Frustrated"},
-    {feeling: "Angry"},
-    {feeling: "Excited"},
-    {feeling: "Nervous"},
-    {feeling: "Unwell"},
-    {feeling: "Standoffish"}])
+    {feeling: "Happy", image_url: "https://ibb.co/KjVSs1H"},
+    {feeling: "Sad", image_url: "https://ibb.co/tCmkgxY "},
+    {feeling: "Frustrated", image_url: "https://ibb.co/C7b5Z4r"},
+    {feeling: "Angry", image_url: "https://ibb.co/MDb1cQD, image_url:"},
+    {feeling: "Excited", image_url: "https://ibb.co/JmdNkCT"},
+    {feeling: "Nervous", image_url: "https://ibb.co/wKsMGbG"},
+    {feeling: "Unwell", image_url: "https://ibb.co/QvgYztK"},
+    {feeling: "Standoffish", image_url: "https://ibb.co/0Q4zwrM"}])
    
-chart = Chart.create([
-    {title: "Today was a fantastic day!", content: "We rode our bikes in the park and Fynleigh was looked amazing and bright, The look of pure happiness on her face was incredible. These are the days that make me feeling like im doing a great job", date: "2021-05-31", mood_id: 1}
-])
