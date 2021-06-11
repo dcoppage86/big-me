@@ -21,7 +21,7 @@ class Chart {
                 <p>${this.content}</p>
                 <br>
                 <p hidden>${this.mood_id}</p>
-                <button data-id=${this.id} class="submit bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded-full"> Edit </button>
+                <button data-id=${this.id} class="edit-btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded-full"> Edit </button><button data-id=${this.id} class="dlt-btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded-full">Delete</button>
             </div>`;
     };
 

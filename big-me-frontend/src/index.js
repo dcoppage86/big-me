@@ -28,16 +28,24 @@ function eventListeners(){
         showCharts()
     });
 
-    chartContainer.addEventListener("click", function(e) {
-        e.preventDefault(e)
-        showEditForm()
-        hideChartForm()
-        hideCharts()
-        const id = parseInt(e.target.dataset.id)
-        let chart = Chart.findById(id)
-        editChart.innerHTML = chart.renderEditChart();
-        }
+    document.addEventListener("click", function(e) {
+        if(e.target.matches(".edit-btn")){
+            e.preventDefault(e)
+            console.log("clicked")
+            showEditForm()
+            hideChartForm()
+            hideCharts()
+            const id = parseInt(e.target.dataset.id)
+            let chart = Chart.findById(id)
+            editChart.innerHTML = chart.renderEditChart();
+        }}
     );
+
+    document.addEventListener("click", function(e) {
+        if(e.target.matches(".dlt-btn")){
+            console.log('clicked')
+        }
+    })
         
     editChart.addEventListener('submit', function (e) {
         editFormHandler(e);
@@ -56,6 +64,7 @@ function eventListeners(){
     showChtBtn.addEventListener('click', function(e) {
         hideGreeting();
         showChartForm();
+        hideCharts();
     });
 
     allChtsBtn.addEventListener('click', function(e) {
@@ -94,6 +103,7 @@ function hideGreeting() {
 function showGreeting() {
     greetingContainer.style.display = "contents"
 }
+
 
 function createFormHandler(e) {
     e.preventDefault()
