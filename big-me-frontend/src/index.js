@@ -30,20 +30,25 @@ function eventListeners(){
 
     document.addEventListener("click", function(e) {
         if(e.target.matches(".edit-btn")){
-            e.preventDefault(e)
-            console.log("clicked")
-            showEditForm()
-            hideChartForm()
-            hideCharts()
-            const id = parseInt(e.target.dataset.id)
-            let chart = Chart.findById(id)
+            e.preventDefault(e);
+            console.log("clicked");
+            showEditForm();
+            hideChartForm();
+            hideCharts();
+            const id = parseInt(e.target.dataset.id);
+            let chart = Chart.findById(id);
             editChart.innerHTML = chart.renderEditChart();
         }}
     );
 
     document.addEventListener("click", function(e) {
         if(e.target.matches(".dlt-btn")){
-            console.log('clicked')
+            console.log('clicked');
+            e.preventDefault();
+            let id = parseInt(e.target.dataset.id)
+            let chart = Chart.findById(id)
+            newApi.deleteChart(id)
+            e.target.parentNode.remove()
         }
     })
         
@@ -91,7 +96,6 @@ function showCharts() {
     chartContainer.style.display = "block"
 }
     
-
 function showEditForm() {
     editChart.style.display = "block"
 }

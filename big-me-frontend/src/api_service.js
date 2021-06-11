@@ -46,6 +46,13 @@
                 })
             })
             .then(response => response.json())
-        }
+    }
+
+    deleteChart(id) {
+        return fetch(this.chartsUrl + `/${id}`, {
+            method: 'DELETE',
+        })
+        .then(response => response.json())
+    }
 
 }
