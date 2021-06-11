@@ -8,7 +8,7 @@
             .then(response => response.json())
             .then(charts => {
                 // let charts = Chart.all
-                charts.forEach(chart => {
+                charts.data.forEach(chart => {
                 
                     const newChart = new Chart(chart)
     

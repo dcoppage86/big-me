@@ -3,13 +3,13 @@ class Chart {
 
     constructor(chart) {
         this.id = chart.id
-        this.title = chart.title
-        this.content = chart.content
-        this.date = chart.date
-        this.mood = new Mood(moods)
-        this.feeling = moods.feeling
+        this.title = chart.attributes.title
+        this.content = chart.attributes.content
+        this.date = chart.attributes.date
+        this.mood = chart.attributes.mood_id
+        this.feeling = chart.attributes.mood.feeling
         Chart.all.push(this)
-        console.log(this.mood)
+        console.log(chart)
     };
 
     static findById(id) {
@@ -24,8 +24,8 @@ class Chart {
                 <p>${this.content}</p>
                 <br>
                 <br>
-                <p>${this.mood}</p>
-                <p>${this.mood_id}</p>
+                <p>${this.feeling}</p>
+                <p hidden>${this.mood_id}</p>
                 <button data-id=${this.id} class="edit-btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded-full"> Edit </button><button data-id=${this.id} class="dlt-btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded-full">Delete</button>
             </div>`;
     };
