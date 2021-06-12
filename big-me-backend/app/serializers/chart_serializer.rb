@@ -1,4 +1,4 @@
 class ChartSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :title, :content, :date, :mood, :mood_id
+  attributes :title, :content, :date, :mood_id, :mood
 end

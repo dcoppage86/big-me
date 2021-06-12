@@ -8,12 +8,12 @@
 Mood.destroy_all
 
 mood = Mood.create([
-    {feeling: "Happy", image_url: "https://ibb.co/KjVSs1H"},
+    {feeling: "Happy", image_url: "https://i.ibb.co/d0kxphy/1-F601-color.png"},
     {feeling: "Sad", image_url: "https://ibb.co/tCmkgxY "},
     {feeling: "Frustrated", image_url: "https://ibb.co/C7b5Z4r"},
-    {feeling: "Angry", image_url: "https://ibb.co/MDb1cQD, image_url:"},
+    {feeling: "Angry", image_url: "https://ibb.co/MDb1cQD"},
     {feeling: "Excited", image_url: "https://ibb.co/JmdNkCT"},
-    {feeling: "Nervous", image_url: "https://ibb.co/wKsMGbG"},
+    {feeling: "Nervous", image_url: "https://i.ibb.co/rZs48L8/1-F627-color.png"},
     {feeling: "Unwell", image_url: "https://ibb.co/QvgYztK"},
     {feeling: "Standoffish", image_url: "https://ibb.co/0Q4zwrM"}])
    

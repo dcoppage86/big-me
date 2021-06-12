@@ -3,7 +3,7 @@ class Api::V1::ChartsController < ApplicationController
 
     def index
         charts = Chart.all
-        render json: ChartSerializer.new(charts)
+        render json: charts
     end
 
     def create
@@ -44,7 +44,7 @@ class Api::V1::ChartsController < ApplicationController
     private 
     
     def chart_params
-        params.require(:chart).permit(:id, :title, :content, :date, :mood, :mood_id)
+        params.require(:chart).permit(:id, :title, :content, :date, :mood_id)
     end
 
     def set_chart
