@@ -39,9 +39,9 @@ function eventListeners(){
             showEditForm();
             hideChartForm();
             hideCharts();
-            const id = parseInt(e.target.dataset.id);
+            let id = parseInt(e.target.dataset.id);
             let chart = Chart.findById(id);
-            editChart.innerHTML = chart.renderEditChart();
+            editChart.innerHTML += chart.renderEditChart();
         }}
     );
 
@@ -50,7 +50,6 @@ function eventListeners(){
             console.log('clicked');
             e.preventDefault();
             let id = parseInt(e.target.dataset.id);
-            let chart = Chart.findById(id);
             newApi.deleteChart(id);
             e.target.parentNode.remove();
         }
