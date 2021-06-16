@@ -1,4 +1,3 @@
-
 const newApi = new ApiService
 
 const newChartForm = document.querySelector("#new-chart-form")
@@ -128,11 +127,12 @@ function editFormHandler(e) {
     chart.title = e.target.querySelector('#input-title').value
     chart.content = e.target.querySelector('#input-content').value
     chart.date = e.target.querySelector('#start').value
-    chart.mood_id = e.target.querySelector('#moods').value
+    chart.mood_id = parseInt(e.target.querySelector('#moods').value)
     newApi.patchChart(chart)
     const chartContainer =  document.querySelector("#chart-container")
     chartContainer.innerHTML = ""
     Chart.all.forEach(c => chartContainer.innerHTML += c.renderChartCard())
 };
+
 
 

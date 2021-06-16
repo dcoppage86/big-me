@@ -6,7 +6,7 @@ class Chart {
         this.title = chart.title
         this.content = chart.content
         this.date = chart.date
-        this.mood = chart.mood
+        this.mood_id = chart.mood_id
         Chart.all.push(this)
         console.log(chart)
     };
@@ -23,7 +23,7 @@ class Chart {
                 <p>${this.content}</p>
                 <br>
                 <br>
-                <p hidden>${this.mood_id}</p>
+                <p>${this.mood_id}</p>
                 <button data-id=${this.id} class="edit-btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded-full"> Edit </button><button data-id=${this.id} class="dlt-btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded-full">Delete</button>
             </div>`;
     };
@@ -43,7 +43,7 @@ class Chart {
                 <textarea id='input-content' type="text" name="content" value="" cols="80" rows="8" placeholder="Tell us about your day..." class="input-text">${this.content}</textarea>
                 <br>
                 <br>
-                <select id='moods' name="moods" value"${this.mood}">
+                <select id='moods' name="moods" value"${this.mood_id}">
                     <option value="1">Happy</option>
                     <option value="2">Sad</option>
                     <option value="3">Frustrated</option>
