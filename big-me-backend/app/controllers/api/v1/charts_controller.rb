@@ -3,27 +3,27 @@ class Api::V1::ChartsController < ApplicationController
 
     def index
         charts = Chart.all
-        render json: charts
+        render json: ChartSerializer.new(charts)
     end
 
     def create
         chart = Chart.new(chart_params)
         if chart.save
-            render json: chart, status: :accepted
+            render json: ChartSerializer.new(chart), status: :accepted
         else
-            render json: {errors: chart.errors.full_messages}, status: :unprocessable_entity
+            render json: {errors: chart.errors.full_messages}, status: :unprocessible_entity
         end
     end
 
     def show
         chart = Chart.find_by(id: params[:id])
-        render json: chart
+        render json: ChartSerializer.new(chart)
     end
     
     def update
         chart = Chart.find_by(id: params[:id])
         if chart && chart.update(chart_params)
-          render json: chart, status: :accepted
+          render json: ChartSerializer.new(chart), status: :accepted
         else
           render json: {errors: chart.errors.full_messages}
         end
@@ -44,7 +44,7 @@ class Api::V1::ChartsController < ApplicationController
     private 
     
     def chart_params
-        params.require(:chart).permit(:id, :title, :content, :date, :mood, :mood_id)
+        params.require(:chart).permit(:id, :title, :content, :date, :mood_id)
     end
 
     def set_chart
