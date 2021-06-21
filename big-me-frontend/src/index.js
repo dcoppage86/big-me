@@ -59,6 +59,7 @@ function eventListeners(){
         editFormHandler(e);
         hideChartForm()
         showCharts()
+        hideSelector();
         console.log(chartContainer.children)
         editChart.innerHTML = ""
     });
@@ -68,6 +69,7 @@ function eventListeners(){
         showGreeting();
         hideChartForm();
         hideCharts();
+        hideSelector();
     });
 
     showChtBtn.addEventListener('click', function(e) {
@@ -76,6 +78,7 @@ function eventListeners(){
         showChartForm();
         hideCharts();
         hideEditForm();
+        hideSelector();
     });
 
     allChtsBtn.addEventListener('click', function(e) {
@@ -83,38 +86,19 @@ function eventListeners(){
         hideGreeting();
         hideChartForm();
         showCharts();
+        showSelector();
     
     });
 
     moodSelector.addEventListener('change', function(e) {
+        // if(e.target.value())
         let chartArr = Chart.all
-        let filteredCharts = chartArr.filter(mood_id => mood_id >= "1")
-        let sortedCharts = filteredCharts.sort()
-        debugger
-        if(e.target.children[0].childNodes[0].nodeType) {
-            console.log("1")
-        }
-        if(e.target.children[1]) {
-            console.log("2")
-        }
-        if(e.target.children[2]) {
-            console.log("3")
-        }
-        if(e.target.children[3]) {
-            console.log("4")
-        }
-        if(e.target.children[4]) {
-            console.log("5")
-        }
-        if(e.target.children[5]) {
-            console.log("6")
-        }
-        if(e.target.children[6]) {
-            console.log("7")
-        }
-        if(e.target.children[7]) {
-            console.log("8")
-        }
+        console.log(chartArr)
+        console.log(e.target.value)
+        let filteredCharts = chartArr.filter(chart => chart.mood_id === parseInt(e.target.value))
+        console.log(filteredCharts)
+        chartContainer.innerHTML = ""
+        filteredCharts.forEach(c => chartContainer.innerHTML += c.renderChartCard())
     })
 
 };
@@ -146,64 +130,19 @@ function hideGreeting() {
 
 function hideEditForm() {
     editChart.style.display = "none"
-}
+};
 
 function showGreeting() {
     greetingContainer.style.display = "contents"
 };
-// function moodSelecter() {
-//         `<select id='mood-org' name="moods">
-//             <option class="opt-sel-1" value="1">Happy</option>
-//             <option class="opt-sel-2" value="2">Sad</option>
-//             <option class="opt-sel-3" value="3">Frustrated</option>
-//             <option class="opt-sel-4" value="4">Angry</option>
-//             <option class="opt-sel-5" value="5">Excited</option>
-//             <option class="opt-sel-6" value="6">Nervous</option>
-//             <option class="opt-sel-7" value="7">Unwell</option>
-//             <option class="opt-sel-8" value="8">Standoffish</option>
-//         </select>`
-// }
 
-function moodSwitch() {
-    switch (chartsByMood(filteredCharts)) {
-        case 1:
-            moodId = 1;
-            
-            break;
-        case 2:
-            moodId = 2;
-            
-            break;
-        case 3:
-            moodId = 3;
-                
-            break;
-        case 4:
-            moodId = 4;
-            
-            break;
-        case 5:
-            moodId = 5;
-            
-            break;
-        case 6:
-            moodId = 6;
-            
-            break;
-        case 7:
-            moodId = 7;
-                
-            break;
-        case 8:
-            moodId = 8;
-            
-            break;
-                
-        default:
-            break;
-    };
+function hideSelector() {
+    moodSelector.style.display = "none"
 };
 
+function showSelector() {
+    moodSelector.style.display = "block"
+}
 
 
 function createFormHandler(e) {

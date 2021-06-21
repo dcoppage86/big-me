@@ -9,9 +9,9 @@ class Chart {
         this.date = chart.attributes.date
         this.mood = chart.attributes.mood
         this.mood_id = chart.attributes.mood_id
-        this.showCharts()
+        this.showAllCharts()
         Chart.all.push(this)
-        console.log(this)
+
     };
 
     static findById(id) {
@@ -19,14 +19,12 @@ class Chart {
     };
 
     static filterMood() {
-        return this.all.filter(function(mood) {
-            return mood === mood
-        })
+        return this.all.filter(chart => chart.mood_id === parseInt(e.target.value))
     }
 
     
 
-    showCharts() {
+    showAllCharts() {
         return document.querySelector('#chart-container').innerHTML += this.renderChartCard();
     }
 
