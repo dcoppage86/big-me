@@ -16,6 +16,7 @@ For backend
 cd big-me-backend
 rails db:migrate
 rails db:seed
+rails s
 ```
 With the rails server running you will open the index.html file in your browser.
 
