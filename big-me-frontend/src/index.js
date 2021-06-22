@@ -49,7 +49,7 @@ function eventListeners(){
         if(e.target.matches(".dlt-btn")){
             console.log('clicked');
             e.preventDefault();
-            let id = parseInt(e.target.dataset.id);
+            let id = e.target.dataset.id;
             newApi.deleteChart(id);
             e.target.parentNode.remove();
         }
