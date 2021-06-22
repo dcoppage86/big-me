@@ -32,22 +32,6 @@ class Chart {
         return document.querySelector('#edit-chart-container').innerHTML += this.renderEditChart();
     }
 
-
-    // renderMoodSelector() {
-    //     return `
-    //     <select id='mood-org' name="moods" onclick="">
-    //             <option class="opt-sel-1" value="1">Happy</option>
-    //             <option class="opt-sel-2" value="2">Sad</option>
-    //             <option class="opt-sel-3" value="3">Frustrated</option>
-    //             <option class="opt-sel-4" value="4">Angry</option>
-    //             <option class="opt-sel-5" value="5">Excited</option>
-    //             <option class="opt-sel-6" value="6">Nervous</option>
-    //             <option class="opt-sel-7" value="7">Unwell</option>
-    //             <option class="opt-sel-8" value="8">Standoffish</option>
-    //     </select>
-    //     `
-    // };
-
     renderChartCard() {
         return `
             <div data-id=${this.id} id="chart-${this.id}" class="bg-blue-300 rounded-lg border shadow-lg p-10">

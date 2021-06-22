@@ -11,10 +11,7 @@ class ApiService {
                charts.data.forEach(chart => {
                
                    const newChart = new Chart(chart, chart.attributes)
-   
-                //    document.querySelector('#chart-container').innerHTML += newChart.renderChartCard();
                })
-               return charts
        })
    };
 
@@ -29,8 +26,6 @@ class ApiService {
            .then(response => response.json())
            .then(chart => {
                let newChart = new Chart(chart.data, chart.attributes)
-            
-            //    document.querySelector('#chart-container').innerHTML += newChart.renderChartCard()
            })
            
    };

@@ -91,12 +91,8 @@ function eventListeners(){
     });
 
     moodSelector.addEventListener('change', function(e) {
-        // if(e.target.value())
         let chartArr = Chart.all
-        console.log(chartArr)
-        console.log(e.target.value)
         let filteredCharts = chartArr.filter(chart => chart.mood_id === parseInt(e.target.value))
-        console.log(filteredCharts)
         chartContainer.innerHTML = ""
         filteredCharts.forEach(c => chartContainer.innerHTML += c.renderChartCard())
     })
@@ -161,9 +157,8 @@ function editFormHandler(e) {
     let chart = Chart.findById(id)
     chart.title = e.target.querySelector('#input-title').value
     chart.content = e.target.querySelector('#input-content').value
-    chart.date = e.target.querySelector('#start').value
     console.log(chartContainer.children)
-    newApi.patchChart(chart, chart.title, chart.content, chart.date)
+    newApi.patchChart(chart, chart.title, chart.content)
     chartContainer.innerHTML = ""
     Chart.all.forEach(c => chartContainer.innerHTML += c.renderChartCard())
 };
